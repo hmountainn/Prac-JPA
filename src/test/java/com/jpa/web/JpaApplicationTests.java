@@ -1,4 +1,4 @@
-package com.petharu.web;
+package com.jpa.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
