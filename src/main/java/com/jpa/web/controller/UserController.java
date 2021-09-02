@@ -26,18 +26,29 @@ public class UserController {
 	
 	//Read
 	@GetMapping("/user")
-	public User GetUser(int id) {
+	public User getUser(int id) {
 		return repository.findById(id).orElse(null); //해당되는값 없으면 null반환
 	}
 	
 	@GetMapping("/user/all")
-	public List<User> GetUserList(){
+	public List<User> getUserList(){
 		return (List<User>) repository.findAll();
+	}
+	
+	//Read 커스텀
+	@GetMapping("/user/name")
+	public List<User> getUserByName(String name){
+		return repository.findByName(name);
+	}
+	
+	@GetMapping("/user/search")
+	public List<User> SearchUser(String name){
+		return repository.findByNameLike("%"+name+"%");
 	}
 	
 	//Update
 	@PostMapping("/user")
-	public User PostUser(User user) {
+	public User postUser(User user) {
 		return repository.save(user);
 	}
 	
